@@ -35,7 +35,7 @@ exampleTest = function() {
    );
 };
 
-exampleTest();
+// exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
@@ -45,7 +45,7 @@ animals. You only have time for one. How do you choose just one?!
 */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
+var nextAnimal = 'kiwi';
 
 
 /* TODO:
@@ -59,9 +59,13 @@ message. */
 
 faveAnimalTest = function() {
   assert(
-
+    favoriteAnimals.indexOf(nextAnimal) !== -1,
+    'nextAnimal is in the array favoriteAnimals and is currently: ' + nextAnimal,
+    'nextAnimal is NOT in the array favoriteAnimals and is currently: ' + nextAnimal
   );
 };
+
+faveAnimalTest();
 
 /* TODO:
 Now assign one of your favorite animals dynamically, by chance, to the
