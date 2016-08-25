@@ -20,18 +20,22 @@ function assert(expression, successMessage, failureMessage) {
     return console.log('test passing:', successMessage);
   }
   console.log('test failing:', failureMessage);
-}
+};
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin ';
 
 exampleTest = function() {
   assert(
-
-  );
+    ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently:' + ricksFaveAnimal,
+    'oh no! ricksFaveAnimal should be a valid string, but is currently "' + ricksFaveAnimal + '" '
+   );
 };
 
+exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
