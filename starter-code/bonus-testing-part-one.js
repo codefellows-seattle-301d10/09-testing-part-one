@@ -24,14 +24,17 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = ' ';
 
 exampleTest = function() {
   assert(
-
+    (ricksFaveAnimal.trim().length) &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently: ' + ricksFaveAnimal,
+    'Oh No! ricksFaveAnimal should be a valid string, but is currently: "' + ricksFaveAnimal + '"'
   );
 };
-
+exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
@@ -40,11 +43,18 @@ The zoo is closing in 20 minutes. You still haven't seen your four favorite
 animals. You only have time for one. How do you choose just one?!
 */
 
+
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
+var randomAnimal = Math.floor(Math.random()*favoriteAnimals.length);
+var nextAnimal = favoriteAnimals[randomAnimal];
+
+/* TODO: DONE
+Now assign one of your favorite animals dynamically, by chance, to the
+nextAnimal variable ... then invoke your test!   :-)
+Your code begins on the next line: */
 
 
-/* TODO:
+/* TODO: DONE
 Write a test FIRST! Use the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
 
@@ -53,13 +63,20 @@ just 'penguin').
 Remember to: pass in your expression, and write a success and a failure
 message. */
 
-faveAnimalTest = function() {
-  assert(
+function testWork() {
+  for (var i = 0; i < favoriteAnimals.length; i++) {
+    var thisAnimal = favoriteAnimals[i];
+    if (thisAnimal === nextAnimal) {
+      return true;
+    }
+  }
+};
 
+faveAnimalTest = function() {
+  assert(!(favoriteAnimals.indexOf(nextAnimal) === -1),
+    'Great Choice go check out the ' + nextAnimal,
+    nextAnimal + ' is not one of your favorite animals'
   );
 };
 
-/* TODO:
-Now assign one of your favorite animals dynamically, by chance, to the
-nextAnimal variable ... then invoke your test!   :-)
-Your code begins on the next line: */
+faveAnimalTest();
