@@ -24,14 +24,17 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin';
 
 exampleTest = function() {
   assert(
 
+    ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string', 'ricksFaveAnimal is a valid string and is currently: '+ricksFaveAnimal, 'Oh No! ricksFaveAnimal should be a valid string but is currently "'+ ricksFaveAnimal + '"'
   );
 };
 
+exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
@@ -43,7 +46,6 @@ animals. You only have time for one. How do you choose just one?!
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
 var nextAnimal;
 
-
 /* TODO:
 Write a test FIRST! Use the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
@@ -53,9 +55,11 @@ just 'penguin').
 Remember to: pass in your expression, and write a success and a failure
 message. */
 
-faveAnimalTest = function() {
+faveAnimalTest = function(){
   assert(
-
+      favoriteAnimals.find(function(){return nextAnimal;}),
+      'nextAnimal is a favoriteAnimal, you\'re seeing the: ' + nextAnimal + ' next',
+      'Stay where you are, ' + nextAnimal + ' is not one of your favorites!'
   );
 };
 
@@ -63,3 +67,6 @@ faveAnimalTest = function() {
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
+
+nextAnimal = favoriteAnimals[Math.floor(Math.random()*3)];
+faveAnimalTest();
