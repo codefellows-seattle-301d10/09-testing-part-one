@@ -45,10 +45,41 @@ animals. You only have time for one. How do you choose just one?!
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
 var nextAnimal;
+var randomNum;
+
+
+faveAnimalTest = function() {
+  assert(
+    typeof (randomNum) === 'number' && randomNum >= 0 && randomNum <= 3,
+    'You have a random number between 0 and 3 and it is ' + randomNum + ' and you are getting an animal from the array. That animal is ' + favoriteAnimals[randomNum],
+    'You do not have a random number between 0 and 3, what you have is this: ' + randomNum
+  );
+};
+
+var randomNumGenerator = function(min, max){
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+randomNumGenerator(0,3);
+
+nextAnimal = function(){
+  return favoriteAnimals[randomNum];
+};
+
+nextAnimal();
+faveAnimalTest();
+
 
 
 /* TODO:
-- Test to see if you're creating a random number between 0 and 3
+Now assign one of your favorite animals dynamically, by chance, to the
+nextAnimal variable ... then invoke your test!   :-)
+Your code begins on the next line: */
+/* TODO:
+- Test to see if you're creating a number
+- Test that that the number is between 0 and 3
 - Test to see if you're selecting the appropriate index number from the array
 - Test to see if you're getting a favorite animal back
 
@@ -59,14 +90,3 @@ No hard-coded results allowed! (e.g. -  seeing if nextAnimal is equal to
 just 'penguin').
 Remember to: pass in your expression, and write a success and a failure
 message. */
-
-faveAnimalTest = function() {
-  assert(
-
-  );
-};
-
-/* TODO:
-Now assign one of your favorite animals dynamically, by chance, to the
-nextAnimal variable ... then invoke your test!   :-)
-Your code begins on the next line: */
