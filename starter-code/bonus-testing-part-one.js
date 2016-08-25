@@ -73,11 +73,11 @@ faveAnimalTest();
 
 
 
-/* TODO:
+/* TODO: DONE
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
-/* TODO:
+/* TODO: DONE
 - Test to see if you're creating a number
 - Test that that the number is between 0 and 3
 - Test to see if you're selecting the appropriate index number from the array
