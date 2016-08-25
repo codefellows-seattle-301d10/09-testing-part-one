@@ -24,13 +24,16 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin';
 
 exampleTest = function() {
   assert(
-
+    ricksFaveAnimal.trim().length && typeof(ricksFaveAnimal) === 'string',
+    ricksFaveAnimal + ' is a valid string.',
+    ricksFaveAnimal + ' is not a valid string'
   );
 };
+exampleTest();
 
 
 /* ========================================================================
@@ -45,6 +48,10 @@ var nextAnimal;
 
 
 /* TODO:
+- Test to see if you're creating a random number between 0 and 3
+- Test to see if you're selecting the appropriate index number from the array
+- Test to see if you're getting a favorite animal back
+
 Write a test FIRST! Use the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
 
