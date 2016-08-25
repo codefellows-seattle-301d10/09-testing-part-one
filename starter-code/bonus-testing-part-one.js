@@ -24,14 +24,17 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'cat';
 
 exampleTest = function() {
   assert(
-
+    ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently: ' + ricksFaveAnimal,
+    'Oh no! ricksFaveAnimal should be a valid string but is currently "' + ricksFaveAnimal + '"'
   );
 };
-
+exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
@@ -41,10 +44,12 @@ animals. You only have time for one. How do you choose just one?!
 */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
+var randomAnimal = Math.floor(Math.random()*favoriteAnimals.length);
+var nextAnimal = favoriteAnimals[randomAnimal];
 
 
-/* TODO:
+
+/* TODO DONE:
 Write a test FIRST! Use the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
 
@@ -53,13 +58,26 @@ just 'penguin').
 Remember to: pass in your expression, and write a success and a failure
 message. */
 
-faveAnimalTest = function() {
-  assert(
-
-  );
-};
-
-/* TODO:
+/* TODO DONE:
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
+//
+//Not invoked because not necessary, but coud pass animalTest() as the first argument to faveAnimalTest below.
+function animalTest() {
+  for (var i = 0; i < favoriteAnimals.length; i++) {
+    var thisAnimal = favoriteAnimals[i];
+    if (thisAnimal === nextAnimal) {
+      return true;
+    }
+  }
+}
+
+faveAnimalTest = function() {
+  assert(!(favoriteAnimals.indexOf(nextAnimal) === -1),
+  'That is a great choice to go see the "' + nextAnimal + '" before closing time!',
+  '"' + nextAnimal + '" is not one of your favorite animals.'
+  );
+};
+
+faveAnimalTest();
