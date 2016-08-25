@@ -24,13 +24,16 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin';
 
 exampleTest = function() {
-  assert(
-
+  assert(ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently: ' + ricksFaveAnimal,
+    'Oh no! ricksFaveAnimal should be a valid string but is currently: ' + ricksFaveAnimal
   );
 };
+// exampleTest();
 
 
 /* ========================================================================
@@ -40,8 +43,10 @@ The zoo is closing in 20 minutes. You still haven't seen your four favorite
 animals. You only have time for one. How do you choose just one?!
 */
 
-var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
+
+//Judy worked with Rachael on this assignment.
+
+
 
 
 /* TODO:
@@ -55,11 +60,31 @@ message. */
 
 faveAnimalTest = function() {
   assert(
-
+    typeof (randomNumber) === 'number' && randomNumber >= 0 && randomNumber <= 3 && typeof nextAnimal === 'string',
+    'Test passed: randomNumber = ' + randomNumber + ' and nextAnimal = ' + nextAnimal,
+    'Test failed: randomNumber = ' + randomNumber + ' and nextAnimal = ' + nextAnimal
   );
 };
+
+
 
 /* TODO:
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
+
+getRandomNumber(0,3);
+
+var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
+var nextAnimal = favoriteAnimals[randomNumber];
+var randomNumber;
+
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomNumber;
+};
+
+
+faveAnimalTest();
