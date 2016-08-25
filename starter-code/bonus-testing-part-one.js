@@ -45,7 +45,8 @@ animals. You only have time for one. How do you choose just one?!
 */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal = 'kiwi';
+var couldBeFavoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels', 'wolves', 'turtles'];
+var nextAnimal;
 
 
 /* TODO:
@@ -60,11 +61,18 @@ message. */
 faveAnimalTest = function() {
   assert(
     favoriteAnimals.indexOf(nextAnimal) !== -1,
-    'nextAnimal is in the array favoriteAnimals and is currently: ' + nextAnimal,
+    'nextAnimal IS in the array favoriteAnimals and is currently: ' + nextAnimal,
     'nextAnimal is NOT in the array favoriteAnimals and is currently: ' + nextAnimal
   );
 };
 
+populateNextAnimal = function() {
+  var randomNumber = Math.floor(Math.random() * couldBeFavoriteAnimals.length);
+  nextAnimal = couldBeFavoriteAnimals[randomNumber];
+};
+
+
+populateNextAnimal();
 faveAnimalTest();
 
 /* TODO:
