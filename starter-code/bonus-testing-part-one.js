@@ -58,9 +58,13 @@ message. */
 
 faveAnimalTest = function() {
   assert(
-
+    typeof(nextAnimal) === 'string' &&
+    favoriteAnimals.indexOf(nextAnimal) !== -1,
+    '"' + nextAnimal + '" is a valid string and in the favoriteAnimals array',
+    '"' + nextAnimal + '" is not a string in the favoriteAnimals array'
   );
 };
+faveAnimalTest();
 
 /* TODO:
 Now assign one of your favorite animals dynamically, by chance, to the
