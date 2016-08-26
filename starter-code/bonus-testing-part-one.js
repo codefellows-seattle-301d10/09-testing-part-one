@@ -64,9 +64,14 @@ faveAnimalTest = function() {
     '"' + nextAnimal + '" is not a string in the favoriteAnimals array'
   );
 };
-faveAnimalTest();
+
 
 /* TODO:
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
+findNext = function() {
+  nextAnimal = favoriteAnimals[Math.round(Math.random() * favoriteAnimals.length)];
+};
+findNext();
+faveAnimalTest();
