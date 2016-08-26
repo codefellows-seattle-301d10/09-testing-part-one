@@ -20,18 +20,22 @@ function assert(expression, successMessage, failureMessage) {
     return console.log('test passing:', successMessage);
   }
   console.log('test failing:', failureMessage);
-}
+};
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin ';
 
 exampleTest = function() {
   assert(
-
-  );
+    ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently:' + ricksFaveAnimal,
+    'oh no! ricksFaveAnimal should be a valid string, but is currently "' + ricksFaveAnimal + '" '
+   );
 };
 
+// exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
@@ -41,6 +45,7 @@ animals. You only have time for one. How do you choose just one?!
 */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
+var couldBeFavoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels', 'wolves', 'turtles', '', 0];
 var nextAnimal;
 
 
@@ -55,9 +60,22 @@ message. */
 
 faveAnimalTest = function() {
   assert(
-
+    nextAnimal.trim().length > 0 &&
+    typeof(nextAnimal) === 'string' &&
+    favoriteAnimals.indexOf(nextAnimal) !== -1,
+    'nextAnimal IS in the array favoriteAnimals and is currently: ' + nextAnimal,
+    'nextAnimal is NOT in the array favoriteAnimals and is currently: ' + nextAnimal
   );
 };
+
+populateNextAnimal = function() {
+  var randomNumber = Math.floor(Math.random() * couldBeFavoriteAnimals.length);
+  nextAnimal = couldBeFavoriteAnimals[randomNumber];
+};
+
+
+populateNextAnimal();
+faveAnimalTest();
 
 /* TODO:
 Now assign one of your favorite animals dynamically, by chance, to the
