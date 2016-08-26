@@ -16,22 +16,34 @@
 */
 
 function assert(expression, successMessage, failureMessage) {
+  var currentTest = assert.caller.name;
   if (expression) {
-    return console.log('test passing:', successMessage);
+    return console.log('\n' + currentTest +
+      ' test passing:', successMessage
+    );
   }
-  console.log('test failing:', failureMessage);
+  console.log('\n' + currentTest +
+      ' test failing:', failureMessage
+    );
 }
 
 //  Below, we will write an example of our test in action:
 
 var ricksFaveAnimal = 'penguin';
 
-(function exampleTest() {
+(function isString() {
   assert(
-    typeof(ricksFaveAnimal) === 'string' &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a string primitive.',
+    'ricksFaveAnimal should be a valid string, but is currently "' + ricksFaveAnimal + '".'
+  );
+})();
+
+(function emptyString() {
+  assert(
     ricksFaveAnimal.trim().length,
-    'ricksFaveAnimal is a valid string',
-    'ricksFaveAnimal should be a valid string, but is currently "' + ricksFaveAnimal + '"'
+    'ricksFaveAnimal is a string with content.',
+    'ricksFaveAnimal is an empty string!'
   );
 })();
 
@@ -47,19 +59,17 @@ var nextAnimal;
 
 
 /* TODO:
-Write a test FIRST! Use the `assert()` function below to ensure
+Write a test FIRST! Complete the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
 
-No hard-coded results allowed! (e.g. -  seeing if nextAnimal is equal to
-just 'penguin').
 Remember to: pass in your expression, and write a success and a failure
 message. */
 
-function faveAnimalTest() {
+function faveAnimal() {
   assert(
     favoriteAnimals.indexOf(nextAnimal) !== -1,
     'Hooray! We get to see the ' + nextAnimal + ' next!',
-    'Bummer ... "' + nextAnimal + '" is not on our list ...'
+    'Bummer ... "' + nextAnimal + '" is not on our list.'
   );
 };
 
@@ -69,8 +79,10 @@ nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
 
 function chooseAnimal() {
-  return favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)];
+  var choices = favoriteAnimals.length;
+  var idx = Math.floor(Math.random() * choices);
+  return favoriteAnimals[idx];
 };
 
 nextAnimal = chooseAnimal();
-faveAnimalTest();
+faveAnimal();
