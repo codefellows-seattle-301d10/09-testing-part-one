@@ -60,7 +60,7 @@ message. */
 
 faveAnimalTest = function() {
   assert(
-    nextAnimal.trim().length &&
+    nextAnimal.trim().length > 0 &&
     typeof(nextAnimal) === 'string' &&
     favoriteAnimals.indexOf(nextAnimal) !== -1,
     'nextAnimal IS in the array favoriteAnimals and is currently: ' + nextAnimal,
