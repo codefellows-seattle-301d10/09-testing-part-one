@@ -24,14 +24,17 @@ function assert(expression, successMessage, failureMessage) {
 
 //  Below, we will write an example of our test in action:
 
-var ricksFaveAnimal;
+var ricksFaveAnimal = 'penguin';
 
 exampleTest = function() {
   assert(
-
+    ricksFaveAnimal.trim().length &&
+    typeof(ricksFaveAnimal) === 'string',
+    'ricksFaveAnimal is a valid string and is currently: ' + ricksFaveAnimal,
+    'Oh No! ricksFaveAnimal should be a valid string but is currently: "' + ricksFaveAnimal + '"'
   );
 };
-
+exampleTest();
 
 /* ========================================================================
 ------------------------- Favorite Animals --------------------------------
