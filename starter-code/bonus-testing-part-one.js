@@ -45,7 +45,7 @@ animals. You only have time for one. How do you choose just one?!
 */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var couldBeFavoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels', 'wolves', 'turtles'];
+var couldBeFavoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels', 'wolves', 'turtles', '', 0];
 var nextAnimal;
 
 
